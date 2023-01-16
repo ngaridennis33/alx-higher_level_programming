@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-def find_type(obj):
-	return type(obj)
+type
