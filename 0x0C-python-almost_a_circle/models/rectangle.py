@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 # rectangle.py
-
 """Class Rectangle inherits from Base"""
 
 from models.base import Base
@@ -13,7 +12,7 @@ class Rectangle(Base):
         __height
         __x
         __y
-    
+
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -56,4 +55,3 @@ class Rectangle(Base):
     @y.setter
     def y(self):
         return self.__y
-
