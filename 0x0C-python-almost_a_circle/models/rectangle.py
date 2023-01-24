@@ -3,8 +3,7 @@
 
 """Class Rectangle inherits from Base"""
 
-from turtle import width
-from base import Base
+from models.base import Base
 
 class Rectangle(Base):
     """The Rectangle class of the object
