@@ -1,26 +1,25 @@
 #!/usr/bin/python3
 # base.py
-"""Script to define the Base model class"""
+"""Defines a base model class."""
 
 
 class Base:
-    """ The Base class of the project.
+    """Represent the base model.
 
-        This class will manage id attribute and avoid duplicating code
+    Represents the "base" for all other classes in project 0x0C*.
 
-        Attributes: 
-        __nb_objects (Private class Attribute)
-
+    Attributes:
+        __nb_objects (int): The number of instantiated Bases.
     """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ Initialize the constructor
-        Args:
-        int(id): The base identity
-        """
+        """Initialize a new Base.
 
+        Args:
+            id (int): The identity of the new Base.
+        """
         if id is not None:
             self.id = id
         else:
