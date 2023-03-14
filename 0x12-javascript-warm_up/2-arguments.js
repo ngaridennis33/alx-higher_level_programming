@@ -1,11 +1,9 @@
 #!/usr/bin/node
 
-function print(args, ...rest) {
-  if (args === undefined) {
-    console.log("No argument");
-  } else if (rest.length === 0) {
-    console.log("Argument found");
-  } else if (rest.length > 0) {
-    console.log("Arguments found");
-  }
+if (!process.argv[2]) {
+  console.log('No argument');
+} else if ((process.argv[2]) && (!process.argv[3])) {
+  console.log('Argument found');
+} else {
+  console.log('Arguments found');
 }
