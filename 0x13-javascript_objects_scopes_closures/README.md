@@ -34,7 +34,7 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 - Why the variable type and scope is important
 - What is a closure
 - What is a prototype
-- How to inherit an object from another
+- How to inherit an object from another 
 
 Requirements
 ------------
