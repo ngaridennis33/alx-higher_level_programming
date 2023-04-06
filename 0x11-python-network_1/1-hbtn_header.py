@@ -12,7 +12,7 @@ if __name__ == "__main__":
         url = sys.argv[1]
         try:
             with request.urlopen(url) as response:
-                print(response.headers['X-Request-Id'])
+                print(dict(response.headers).get("X-Request-Id"))
 
         except error.URLError as e:
             if hasattr(e, 'reason'):
