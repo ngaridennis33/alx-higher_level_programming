@@ -1,14 +1,7 @@
 #!/usr/bin/python3
-"""A script that
-- fetches https://intranet.hbtn.io/status.
-- uses urlib package
-"""
+# Script that fetches a URL using urlib
 from urllib import request
-
 if __name__ == "__main__":
-    with request.urlopen("https://intranet.hbtn.io/status") as response:
-        response = response.read()
-        print("Body response:")
-        print("\t- type: {}".format(type(response)))
-        print("\t- content: {}".format(response))
-        print("\t- utf8 content: {}".format(response.decode(encoding='utf-8')))
+        with request.urlopen('https://alx-intranet.hbtn.io/status') as response:
+            html = response.read()
+            print(f"Body response:\n\t- type: {type(html)}\n\t- content: {html}\n\t- utf8 content: {html.decode()}")
