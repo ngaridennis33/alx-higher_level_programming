@@ -1,23 +1,33 @@
-
 #!/usr/bin/python3
-"""
- adds the State object "Louisiana" to the database hbtn_0e_6_usa
-"""
 
-from sys import argv
+"""
+Module to perfom simple queries on the model_state model
+using and ORM - SQLAlchemy
+"""
+from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+import sys
+
+
+def connect_and_query(user: str, passwd: str, dbase: str) -> None:
+
+    """
+    Connect to the database and make queries using ORM
+    """
+    try:
+        engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                               .format(user, passwd, dbase))
+        Session = sessionmaker(bind=engine)
+        state_session = Session()
+
+        lousiana = State(name="Louisiana")
+        state_session.add(lousiana)
+        state_session.commit()
+        print(lousiana.id)
+    except Exception as e:
+        return e
+
 
 if __name__ == "__main__":
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
-                           .format(argv[1], argv[2], argv[3]),
-                           pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-    session_maker = sessionmaker(bind=engine)
-    session = session_maker()
-
-    obj = State(name="Louisiana")
-    session.add(obj)
-    session.commit()
-    print(obj.id)
+    connect_and_query(sys.argv[1], sys.argv[2], sys.argv[3])
